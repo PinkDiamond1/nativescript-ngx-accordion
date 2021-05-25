@@ -1,6 +1,43 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<StackLayout>
-  <Label text="Tap the button"></Label>
-  <Button text="TAP" (tap)="onTap()"></Button>
-  <Label [text]="getMessage()" textWrap="true"></Label>
+<ActionBar height="0"></ActionBar>
+<StackLayout margin="30 10">
+  <Accordion
+    height="75%"
+    limit="30"
+    [items]="items"
+    borderColor="#000"
+    borderWidth="1"
+    [templateRef]="accordion"
+    (eofItems)="addMore()"
+  >
+    <ng-template #accordion let-item="item" let-index="index">
+      <AccordionItem>
+        <AccordionHeader>
+          <StackLayout height="30" borderWidth="1" borderColor="#F00">
+            <Label text="Header--{{ index }}"></Label>
+          </StackLayout>
+        </AccordionHeader>
+        <AccordionContent>
+          <StackLayout [height]="item.h" padding="10" backgroundColor="#EEE">
+            <Label text="Content Height--{{ item.h }}"></Label>
+          </StackLayout>
+        </AccordionContent>
+        <AccordionFooter>
+          <StackLayout height="30">
+            <Label text="Footer"></Label>
+          </StackLayout>
+        </AccordionFooter>
+        <AccordionDivider>
+          <StackLayout height="24"></StackLayout>
+        </AccordionDivider>
+        <AccordionPlaceholder>
+          <StackLayout height="100" backgroundColor="#CEE" borderRadius="8" margin="8 0"></StackLayout>
+        </AccordionPlaceholder>
+      </AccordionItem>
+    </ng-template>
+  </Accordion>
+
+  <FlexboxLayout justifyContent="center">
+    <Button text="Expand All" (tap)="expandAll()" margin="4"></Button>
+    <Button text="Collapse All" (tap)="collapseAll()" margin="4"></Button>
+  </FlexboxLayout>
 </StackLayout>

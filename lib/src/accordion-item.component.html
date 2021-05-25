@@ -1,0 +1,17 @@
+<StackLayout accordion-item [id]="index">
+  <ng-container *ngIf="(isActive | async) === true">
+    <StackLayout [id]="index" #panelHeader>
+      <ng-content select="AccordionHeader"></ng-content>
+    </StackLayout>
+    <StackLayout [id]="index" #panelBody>
+      <ng-content select="AccordionContent"></ng-content>
+      <ng-content select="AccordionFooter"></ng-content>
+    </StackLayout>
+    <ng-content select="AccordionDivider"></ng-content>
+  </ng-container>
+  <ng-container *ngIf="(isActive | async) === false || (isActive | async) === null">
+    <StackLayout #panelHeader>
+      <ng-content select="AccordionPlaceholder"></ng-content>
+    </StackLayout>
+  </ng-container>
+</StackLayout>
