@@ -1,6 +1,6 @@
 # Nativescript-Ngx-Accordion
 
-A Nativescript Angular UI Control for Expand/Collapse Toggle panels. It is an extension of the (IListView)[] control.
+A Nativescript Angular UI Control for Expand/Collapse Toggle panels. It is an extension of the [IListView](https://github.com/themounthead/nativescript-ngx-ilist) control.
 
 ## Setup
 
